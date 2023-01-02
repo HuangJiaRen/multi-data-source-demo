@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: share
+  datasource:
+    dynamic:
+      primary: db1 # 配置默认数据库
+    db1:
+      jdbc-url: jdbc:mysql://10.188.180.150:3306/rczy-logistic?serverTimezone=Asia/Chongqing&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&verifyServerCertificate=false&autoReconnct=true&autoReconnectForPools=true&allowMultiQueries=true
+      username: root
+      password: '*7WNpgayOVSUdkFh'
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    db2:
+      jdbc-url: jdbc:mysql://10.188.180.150:3306/rczy-account?serverTimezone=Asia/Chongqing&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&verifyServerCertificate=false&autoReconnct=true&autoReconnectForPools=true&allowMultiQueries=true
+      username: root
+      password: '*7WNpgayOVSUdkFh'
+      driver-class-name: com.mysql.cj.jdbc.Driver
+server:
+  port: 8081
+

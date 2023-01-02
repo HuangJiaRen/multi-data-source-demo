@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.multi.demo.dao.logistic.WaybillMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.example.multi.demo.domain.WaybillDO">
+        <id column="id" property="id"/>
+        <result column="order_no" property="orderNo"/>
+        <result column="customer_no" property="customerNo"/>
+        <result column="customer_name" property="customerName"/>
+        <result column="waybill_no" property="waybillNo"/>
+        <result column="cargo_no" property="cargoNo"/>
+        <result column="cargo_name" property="cargoName"/>
+        <result column="cargo_type" property="cargoType"/>
+        <result column="cargo_prefix" property="cargoPrefix"/>
+        <result column="plan_send_cargo_weight" property="planSendCargoWeight"/>
+        <result column="real_send_cargo_weight" property="realSendCargoWeight"/>
+        <result column="real_deliver_cargo_weight" property="realDeliverCargoWeight"/>
+        <result column="settlement_cargo_weight" property="settlementCargoWeight"/>
+        <result column="loss_weight" property="lossWeight"/>
+        <result column="cargo_price" property="cargoPrice"/>
+        <result column="freight_rate" property="freightRate"/>
+        <result column="cooperation_tax_rate" property="cooperationTaxRate"/>
+        <result column="cargo_random_code" property="cargoRandomCode"/>
+        <result column="distance_type" property="distanceType"/>
+        <result column="rules_type" property="rulesType"/>
+        <result column="settlement_type" property="settlementType"/>
+        <result column="receipt_pattern" property="receiptPattern"/>
+        <result column="internal_bonded" property="internalBonded"/>
+        <result column="prepay" property="prepay"/>
+        <result column="distance" property="distance"/>
+        <result column="plate_number" property="plateNumber"/>
+        <result column="car_no" property="carNo"/>
+        <result column="carrier_no" property="carrierNo"/>
+        <result column="carrier_name" property="carrierName"/>
+        <result column="driver_no" property="driverNo"/>
+        <result column="driver_name" property="driverName"/>
+        <result column="driver_phone" property="driverPhone"/>
+        <result column="start_province_no" property="startProvinceNo"/>
+        <result column="start_city_no" property="startCityNo"/>
+        <result column="start_district_no" property="startDistrictNo"/>
+        <result column="end_province_no" property="endProvinceNo"/>
+        <result column="end_city_no" property="endCityNo"/>
+        <result column="end_district_no" property="endDistrictNo"/>
+        <result column="required_loading_time" property="requiredLoadingTime"/>
+        <result column="required_arrive_time" property="requiredArriveTime"/>
+        <result column="submit_accounting_time" property="submitAccountingTime"/>
+        <result column="accounted_time" property="accountedTime"/>
+        <result column="cancel_time" property="cancelTime"/>
+        <result column="finish_time" property="finishTime"/>
+        <result column="upload_status" property="uploadStatus"/>
+        <result column="pay_status" property="payStatus"/>
+        <result column="waybill_status" property="waybillStatus"/>
+        <result column="valuation_driver" property="valuationDriver"/>
+        <result column="valuation_user" property="valuationUser"/>
+        <result column="create_user_no" property="createUserNo"/>
+        <result column="update_user_no" property="updateUserNo"/>
+        <result column="insert_time" property="insertTime"/>
+        <result column="gmt_created" property="gmtCreated"/>
+        <result column="gmt_modified" property="gmtModified"/>
+        <result column="transfer_type" property="transferType"/>
+        <result column="deleted" property="deleted"/>
+        <result column="carrier_type" property="carrierType"/>
+        <result column="cargo_type_name" property="cargoTypeName"/>
+        <result column="cargo_sub_type_no" property="cargoSubTypeNo"/>
+        <result column="cargo_sub_type_name" property="cargoSubTypeName"/>
+        <result column="who_tax" property="whoTax"/>
+        <result column="send_cargo_time" property="sendCargoTime"/>
+        <result column="receive_cargo_time" property="receiveCargoTime"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, order_no, customer_no, customer_name, waybill_no, cargo_no, cargo_name, cargo_type, cargo_prefix,
+        plan_send_cargo_weight, real_send_cargo_weight, real_deliver_cargo_weight, settlement_cargo_weight,
+        loss_weight, cargo_price, freight_rate, cooperation_tax_rate, cargo_random_code,
+        waybill_type, distance_type, rules_type, settlement_type, receipt_pattern, internal_bonded,
+        prepay, distance, plate_number, car_no, carrier_no, carrier_name, driver_no, driver_name,
+        driver_phone, start_province_no, start_city_no, start_district_no, end_province_no,
+        end_city_no, end_district_no, required_loading_time, required_arrive_time, submit_accounting_time,
+        accounted_time, cancel_time, finish_time, upload_status, pay_status, check_status,
+        waybill_status, pay_type, valuation_driver, valuation_user, create_user_no, update_user_no,
+        insert_time, gmt_created, gmt_modified, transfer_type,deleted, amount_upload_status, carrier_type, cargo_type_name, cargo_sub_type_no, cargo_sub_type_name,who_tax,send_cargo_time,receive_cargo_time
+    </sql>
+
+    <select id="selectByWaybillNo" resultType="com.example.multi.demo.domain.WaybillDO"
+            resultMap="BaseResultMap" parameterType="java.lang.String">
+        select
+        <include refid="Base_Column_List" />
+        from waybill
+        where waybill_no = #{waybillNo}
+          and deleted = 0
+    </select>
+
+
+</mapper>
